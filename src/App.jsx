@@ -4,6 +4,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 // Pages
 import HomePage from "./pages/HomePage";
 import BookPage from "./pages/BookPage";
+import PageNotFound from "./pages/PageNotFound";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route element={<DefaultLayout />}>
           <Route index path="/" element={<HomePage />} />
           <Route path="/books/:id" element={<BookPage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
