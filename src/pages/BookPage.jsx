@@ -1,6 +1,10 @@
 import axios from "../api/axios";
 import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import Container from "../components/ui/Container";
+import Heading from "../components/ui/Heading";
+import Stars from "../components/ui/Stars";
+import { Link } from "react-router";
 
 export default function BookPage() {
   const [book, setBook] = useState({});
@@ -22,5 +26,33 @@ export default function BookPage() {
 
   useEffect(fetchBook, [id, navigate]);
 
-  return <h1>Pagina del libro: {book.title}</h1>;
+  return (
+    <Container>
+      <Link to="/">
+        <i className="fa-solid fa-house"></i> Home page
+      </Link>
+      <section className="grid grid-cols-12 gap-4 mt-4">
+        <div className="col-span-12 md:col-span-4">
+          <img src={book.image} alt={book.title} />
+        </div>
+        <div className="col-span-12 md:col-span-8 space-y-4 bg-white p-4">
+          <Heading level={1}>{book.title}</Heading>
+          <Heading level={3}>{book.author}</Heading>
+          <p>{book.abstract}</p>
+        </div>
+      </section>
+      <section className="mt-4 bg-white p-4 space-y-4">
+        <Heading level={2}>Recensioni</Heading>
+        <ul>
+          {book?.reviews?.map((review) => (
+            <li className="py-2 border-b border-neutral-200" key={review.id}>
+              <Heading level={4}>{review.name}</Heading>
+              <Stars vote={review.vote} />
+              <p>{review.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </Container>
+  );
 }

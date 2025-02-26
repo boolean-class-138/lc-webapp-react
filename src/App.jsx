@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 // Layouts
 import DefaultLayout from "./layouts/DefaultLayout";
 // Pages
+import DesignSystem from "./pages/DesignSystem";
 import HomePage from "./pages/HomePage";
 import BookPage from "./pages/BookPage";
 import PageNotFound from "./pages/PageNotFound";
@@ -10,6 +11,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/design-system" element={<DesignSystem />} />
         <Route element={<DefaultLayout />}>
           <Route index path="/" element={<HomePage />} />
           <Route path="/books/:id" element={<BookPage />} />
