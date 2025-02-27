@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import Container from "../components/ui/Container";
 import Heading from "../components/ui/Heading";
+import Paragraph from "../components/ui/Paragraph";
 import Stars from "../components/ui/Stars";
 import { Link } from "react-router";
 
@@ -38,7 +39,7 @@ export default function BookPage() {
         <div className="col-span-12 md:col-span-8 space-y-4 bg-white p-4">
           <Heading level={1}>{book.title}</Heading>
           <Heading level={3}>{book.author}</Heading>
-          <p>{book.abstract}</p>
+          <Paragraph>{book.abstract}</Paragraph>
         </div>
       </section>
       <section className="mt-4 bg-white p-4 space-y-4">
@@ -48,7 +49,7 @@ export default function BookPage() {
             <li className="py-2 border-b border-neutral-200" key={review.id}>
               <Heading level={4}>{review.name}</Heading>
               <Stars vote={review.vote} />
-              <p>{review.text}</p>
+              <Paragraph>{review.text}</Paragraph>
             </li>
           ))}
         </ul>

@@ -1,4 +1,5 @@
 import Heading from "./Heading";
+import Paragraph from "./Paragraph";
 import Button from "./Button";
 import { Link } from "react-router";
 import Stars from "./Stars";
@@ -13,7 +14,7 @@ export default function Card({ image, title, author, content, link, vote }) {
         <Heading level={4}>{title}</Heading>
         <Stars vote={vote} />
         <Heading level={6}>{author}</Heading>
-        <p className="text-sm">{content}</p>
+        <Paragraph size="sm">{content}</Paragraph>
         <div className="mt-auto text-center">
           <Link to={link}>
             <Button>Leggi di più</Button>

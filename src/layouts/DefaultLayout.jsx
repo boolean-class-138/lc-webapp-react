@@ -6,7 +6,7 @@ export default function DefaultLayout() {
   return (
     <>
       <Header />
-      <main className="py-6">
+      <main className="py-12 grow">
         <Outlet />
       </main>
       <Footer />
