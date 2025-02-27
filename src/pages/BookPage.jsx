@@ -1,11 +1,12 @@
 import axios from "../api/axios";
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate, Link } from "react-router";
 import { useEffect, useState } from "react";
 import Container from "../components/ui/Container";
 import Heading from "../components/ui/Heading";
 import Paragraph from "../components/ui/Paragraph";
 import Stars from "../components/ui/Stars";
-import { Link } from "react-router";
+import Review from "../components/Review";
+import FormAddReview from "../components/FormAddReview";
 
 export default function BookPage() {
   const [book, setBook] = useState({});
@@ -48,12 +49,14 @@ export default function BookPage() {
         <ul>
           {book?.reviews?.map((review) => (
             <li className="py-2 border-b border-neutral-200" key={review.id}>
-              <Heading level={4}>{review.name}</Heading>
-              <Stars vote={review.vote} />
-              <Paragraph>{review.text}</Paragraph>
+              <Review review={review} />
             </li>
           ))}
         </ul>
+      </section>
+      <section className="mt-4 bg-white p-4 space-y-4">
+        <Heading level={3}>Aggiungi una recensione</Heading>
+        <FormAddReview />
       </section>
     </Container>
   );
