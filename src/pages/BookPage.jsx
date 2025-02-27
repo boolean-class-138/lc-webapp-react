@@ -38,6 +38,7 @@ export default function BookPage() {
         </div>
         <div className="col-span-12 md:col-span-8 space-y-4 bg-white p-4">
           <Heading level={1}>{book.title}</Heading>
+          <Stars vote={book.avg_vote} />
           <Heading level={3}>{book.author}</Heading>
           <Paragraph>{book.abstract}</Paragraph>
         </div>
