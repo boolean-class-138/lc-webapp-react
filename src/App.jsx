@@ -6,6 +6,8 @@ import DesignSystem from "./pages/DesignSystem";
 import HomePage from "./pages/HomePage";
 import BookPage from "./pages/BookPage";
 import PageNotFound from "./pages/PageNotFound";
+// Backoffice Pages
+import CreateBook from "./pages/CreateBook";
 
 export default function App() {
   return (
@@ -14,6 +16,7 @@ export default function App() {
         <Route path="/design-system" element={<DesignSystem />} />
         <Route element={<DefaultLayout />}>
           <Route index path="/" element={<HomePage />} />
+          <Route path="/books/create" element={<CreateBook />} />
           <Route path="/books/:id" element={<BookPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
