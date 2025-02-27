@@ -1,6 +1,7 @@
 import Heading from "../components/ui/Heading";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
+import Paragraph from "../components/ui/Paragraph";
 
 export default function DesignSystem() {
   return (
@@ -13,6 +14,12 @@ export default function DesignSystem() {
         <Heading level={4}>Heading h4</Heading>
         <Heading level={5}>Heading h5</Heading>
         <Heading level={6}>Heading h6</Heading>
+        <Paragraph size="sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+          obcaecati, amet id explicabo suscipit, consequatur laboriosam saepe in
+          labore esse placeat consequuntur odio est quam? Ipsam quibusdam
+          voluptatem similique autem!
+        </Paragraph>
       </section>
       <hr />
       <section>
