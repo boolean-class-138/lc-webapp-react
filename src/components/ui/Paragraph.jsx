@@ -1,9 +1,9 @@
-export default function Paragraph({ children, size = "md" }) {
+export default function Paragraph({ children, size = "md", className }) {
   const sizes = {
     sm: "text-sm",
     md: "text-md",
     lg: "text-lg",
   };
 
-  return <p className={sizes[size]}>{children}</p>;
+  return <p className={`${sizes[size]} ${className}`}>{children}</p>;
 }

@@ -14,7 +14,9 @@ export default function Card({ image, title, author, content, link, vote }) {
         <Heading level={4}>{title}</Heading>
         <Stars vote={vote} />
         <Heading level={6}>{author}</Heading>
-        <Paragraph size="sm">{content}</Paragraph>
+        <Paragraph size="sm" className="truncate">
+          {content}
+        </Paragraph>
         <div className="mt-auto text-center">
           <Link to={link}>
             <Button>Leggi di più</Button>

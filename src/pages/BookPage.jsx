@@ -44,16 +44,18 @@ export default function BookPage() {
           <Paragraph>{book.abstract}</Paragraph>
         </div>
       </section>
-      <section className="mt-4 bg-white p-4 space-y-4">
-        <Heading level={2}>Recensioni</Heading>
-        <ul>
-          {book?.reviews?.map((review) => (
-            <li className="py-2 border-b border-neutral-200" key={review.id}>
-              <Review review={review} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      {book.reviews?.length > 0 && (
+        <section className="mt-4 bg-white p-4 space-y-4">
+          <Heading level={2}>Recensioni</Heading>
+          <ul>
+            {book?.reviews?.map((review) => (
+              <li className="py-2 border-b border-neutral-200" key={review.id}>
+                <Review review={review} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <section className="mt-4 bg-white p-4 space-y-4">
         <Heading level={3}>Aggiungi una recensione</Heading>
         <FormAddReview fetchBook={fetchBook} />
