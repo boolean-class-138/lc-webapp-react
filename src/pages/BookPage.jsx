@@ -56,7 +56,7 @@ export default function BookPage() {
       </section>
       <section className="mt-4 bg-white p-4 space-y-4">
         <Heading level={3}>Aggiungi una recensione</Heading>
-        <FormAddReview />
+        <FormAddReview fetchBook={fetchBook} />
       </section>
     </Container>
   );
