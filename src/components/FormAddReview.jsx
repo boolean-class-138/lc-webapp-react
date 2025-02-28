@@ -2,6 +2,7 @@ import axios from "../api/axios";
 import { useState } from "react";
 import { useParams } from "react-router";
 import Button from "./ui/Button";
+import { useAlertContext } from "../contexts/AlertContext";
 
 const initialFormData = {
   name: "",
@@ -12,6 +13,7 @@ const initialFormData = {
 export default function FormAddReview({ fetchBook }) {
   const [formData, setFormData] = useState(initialFormData);
   const { id } = useParams();
+  const { setAlertData } = useAlertContext();
 
   const handleField = (fieldName, fieldValue) => {
     setFormData((currentFormData) => {
@@ -33,7 +35,19 @@ export default function FormAddReview({ fetchBook }) {
       })
       .then(() => {
         setFormData(initialFormData);
+        setAlertData({
+          title: "Aggiunta recensione",
+          text: "Una nuova recensione è stata aggiunta al libro.",
+          variant: "success",
+        });
         fetchBook();
+      })
+      .catch(() => {
+        setAlertData({
+          title: "Errore",
+          text: "Si è verificato un errore durante il salvataggio della recensione",
+          variant: "danger",
+        });
       });
   };
 

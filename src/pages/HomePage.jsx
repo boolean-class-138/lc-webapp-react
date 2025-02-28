@@ -2,17 +2,23 @@ import axios from "../api/axios";
 import { useEffect, useState } from "react";
 import Container from "../components/ui/Container";
 import Card from "../components/ui/Card";
+import { useLoaderContext } from "../contexts/LoaderContext";
 
 export default function HomePage() {
   const [books, setBooks] = useState([]);
+  const { setIsLoading } = useLoaderContext();
 
   const fetchBooks = () => {
-    axios.get("/books").then((res) => {
-      setBooks(res.data);
-    });
+    setIsLoading(true);
+    axios
+      .get("/books")
+      .then((res) => {
+        setBooks(res.data);
+      })
+      .finally(() => setIsLoading(false));
   };
 
-  useEffect(fetchBooks, []);
+  useEffect(fetchBooks, [setIsLoading]);
 
   return (
     <>

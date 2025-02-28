@@ -7,13 +7,16 @@ import Paragraph from "../components/ui/Paragraph";
 import Stars from "../components/ui/Stars";
 import Review from "../components/Review";
 import FormAddReview from "../components/FormAddReview";
+import { useLoaderContext } from "../contexts/LoaderContext";
 
 export default function BookPage() {
   const [book, setBook] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
+  const { setIsLoading } = useLoaderContext();
 
   const fetchBook = () => {
+    setIsLoading(true);
     axios
       .get(`/books/${id}`)
       .then((res) => {
@@ -23,10 +26,11 @@ export default function BookPage() {
         if (err.status === 404) {
           navigate("/404");
         }
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
-  useEffect(fetchBook, [id, navigate]);
+  useEffect(fetchBook, [id, navigate, setIsLoading]);
 
   return (
     <Container>

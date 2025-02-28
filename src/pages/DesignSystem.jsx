@@ -2,6 +2,8 @@ import Heading from "../components/ui/Heading";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import Paragraph from "../components/ui/Paragraph";
+import Alert from "../components/ui/Alert";
+import Loader from "../components/ui/Loader";
 
 export default function DesignSystem() {
   return (
@@ -44,6 +46,15 @@ export default function DesignSystem() {
             content="prova"
           />
         </div>
+      </section>
+      <hr />
+      <section>
+        <Heading level={1}>Alert</Heading>
+        <Alert title="Prova Alert" text="Testo all'interno dell'alert" />
+      </section>
+      <section>
+        <Heading level={1}>Loader</Heading>
+        <Loader />
       </section>
     </div>
   );
