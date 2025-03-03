@@ -11,7 +11,7 @@ export default function HomePage() {
   const fetchBooks = () => {
     setIsLoading(true);
     axios
-      .get("/books")
+      .get("/books/")
       .then((res) => {
         setBooks(res.data);
       })
