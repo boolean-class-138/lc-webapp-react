@@ -18,7 +18,7 @@ export default function HomePage() {
       .finally(() => setIsLoading(false));
   };
 
-  useEffect(fetchBooks, [setIsLoading]);
+  useEffect(fetchBooks, []);
 
   return (
     <>
